@@ -161,14 +161,14 @@
 
 <section class="container hero">
 
-    images/Cam lenes.JPG
+    <img src="images/cam_lenes.JPG" alt="Camera Lens">
 
     <div>
         <h1>Nicholas's Captivating Photography Portfolio</h1>
 
         <p>
-            Explore a curated collection of photographs capturing moments,
-            reflections, landscapes, and creative perspectives.
+            Explore my curated collection of photographs capturing moments,
+            pets, landscapes, and creative perspectives.
         </p>
 
         <a href="#gallery" class="btn">View Gallery</a>
@@ -185,13 +185,13 @@
         <div class="cards">
 
             <div class="card">
-                images/IMG_0569.JPG
+                 <img src="images/Beach_Landscape_effects.jpg" alt="Nature and Landscape">
                 <h3>Nature & Landscape</h3>
                 <p>Scenes and moments from the outdoors.</p>
             </div>
 
-            <div class="card">
-                png" alt="">
+               <div class="card">
+                <img src="images/reflection.png" alt="Creative Reflection">
                 <h3>Creative Reflections</h3>
                 <p>Unique perspectives and visual storytelling.</p>
             </div>
@@ -207,12 +207,18 @@
     <h2>Gallery</h2>
 
     <div class="gallery-grid">
-      <img src="images.JPG
-      <images/IMG_0569.JPG
-      images/IMG_9714.JPG
-      <images/IMG_9716.JPG
-      <img src="images/objects_on_floor.JPG" alt="Reflection">
-      <img src="school_supplies.JPG
+
+        <img src="images/building_clouds.JPG" alt="Clouds">
+
+        <img src="images/dark_sun.JPG" alt="Dark Sun">
+
+        <img src="images/facebook_buddy.jpg" alt="Facebook Buddy">
+
+        <img src="images/objects_on_floor.JPG" alt="Objects on Floor">
+
+        <img src="images/school_supplies.JPG" alt="School Supplies">
+
+        <img src="images/sun.JPG" alt="Sun">
 
     </div>
 
@@ -230,94 +236,4 @@
 
 </body>
 </html>
-var ride="carousel";
-// Nearest element at or above "from" that contains a match, then the match
-// itself. Bounded so a page with several carousels cannot reach across to a
-// neighbour's controls.
-function climb(from,selector){
-  var node=from,depth=0;
-  while(node&&depth<6){
-    var found=node.querySelector(selector);
-    if(found){return found;}
-    node=node.parentElement;depth++;
-  }
-  return null;
-}
-function initCarousels(){
-  if(!window.bootstrap||!window.bootstrap.Carousel){return;}
-  var roots=document.querySelectorAll(".carousel");
-  for(var i=0;i<roots.length;i++){(function(root){
-    var items=root.querySelectorAll(".carousel-item");
-    if(items.length<2){return;}
-    var instance=new window.bootstrap.Carousel(root,{pause:false,ride:ride});
-    // The chevrons and the page indicator are siblings of the carousel rather
-    // than descendants, and they sit at different depths, so each needs its
-    // own climb to the nearest ancestor that actually contains it.
-    var prev=climb(root,".chev-btn:not(.next-btn)");
-    var next=climb(root,".chev-btn.next-btn");
-    if(prev){prev.addEventListener("click",function(){instance.prev();});}
-    if(next){next.addEventListener("click",function(){instance.next();});}
-    var indicator=climb(root,".page-indicator");
-    if(indicator){
-      root.addEventListener("slid.bs.carousel",function(event){
-        indicator.textContent=(event.to+1)+" / "+items.length;
-      });
-    }
-  })(roots[i]);}
-}
-function initAccordions(){
-  var triggers=document.querySelectorAll('[role="button"][aria-controls]');
-  for(var i=0;i<triggers.length;i++){(function(trigger){
-    var panel=document.getElementById(trigger.getAttribute("aria-controls"));
-    if(!panel||panel.className.indexOf("accordion-content")===-1){return;}
-    function setOpen(open){
-      trigger.setAttribute("aria-expanded",open?"true":"false");
-      panel.classList.toggle("expanded",open);
-      var icon=trigger.querySelector(".icon");
-      if(icon){icon.classList.toggle("expanded-icon",open);}
-      var label=trigger.getAttribute("aria-label");
-      if(label){
-        trigger.setAttribute("aria-label",
-          label.replace(open?"Expand":"Collapse",open?"Collapse":"Expand"));
-      }
-      // The class alone is not enough. The panel styles its open state with the
-      // grid 0fr -> 1fr trick, and the panel is a flex item, where that track
-      // resolves to zero however it is set — so drive the height directly and
-      // let the class carry the padding and icon state.
-      var inner=panel.firstElementChild;
-      panel.style.overflow="hidden";
-      panel.style.height=open&&inner?inner.scrollHeight+"px":"0px";
-    }
-    function toggle(){
-      var open=trigger.getAttribute("aria-expanded")==="true";
-      if(!open){
-        // One panel at a time, matching the single expandedIndex the section
-        // keeps in React state. The panels do not share a close parent, so
-        // climb to the nearest ancestor that holds more than one of them.
-        var group=trigger,depth=0;
-        while(group&&depth<8){
-          if(group.querySelectorAll('[role="button"][aria-controls]').length>1){break;}
-          group=group.parentElement;depth++;
-        }
-        if(group){
-          var others=group.querySelectorAll('[role="button"][aria-controls]');
-          for(var j=0;j<others.length;j++){
-            if(others[j]!==trigger&&others[j].getAttribute("aria-expanded")==="true"){
-              others[j].click();
-            }
-          }
-        }
-      }
-      setOpen(!open);
-    }
-    trigger.addEventListener("click",toggle);
-    trigger.addEventListener("keydown",function(event){
-      if(event.key==="Enter"||event.key===" "){event.preventDefault();toggle();}
-    });
-  })(triggers[i]);}
-}
-function start(){initCarousels();initAccordions();}
-if(document.readyState==="loading"){
-  document.addEventListener("DOMContentLoaded",start);
-}else{start();}
-})();</script></body></html>
+     
