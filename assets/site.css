@@ -1,5 +1,5 @@
 :root {
-    --dark: #0b0c0f;
+    --dark: #000000;
     --card: #3f4e79;
     --card-hover: #455583;
     --light: #d6e0fa;
@@ -27,7 +27,7 @@ body {
 /* Header */
 
 header {
-    background: #111;
+    background: #1308deac;
     border-bottom: 1px solid rgba(255,255,255,.15);
 }
 
@@ -168,7 +168,7 @@ nav {
 footer {
     text-align: center;
     padding: 40px;
-    border-top: 1px solid rgba(255,255,255,.1);
+    border-top: 1px solid rgba(236, 25, 25, 0.527);
 }
 
 /* Mobile */
