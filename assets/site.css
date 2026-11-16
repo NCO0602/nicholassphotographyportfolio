@@ -155,7 +155,73 @@ nav {
     text-align: center;
     padding: 60px 30px;
 }
+.theme-section {
+    margin: 50px 0;
+}
+.carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
 
+.carousel-track {
+    display: flex;
+    transition: transform 0.4s ease;
+}
+
+.carousel-track img {
+    flex: 0 0 100%;
+    width: 100%;
+    border-radius: 10px;
+}
+
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    scroll-snap-type: x mandatory;
+
+    padding: 20px;
+}
+
+.carousel img {
+    flex: 0 0 80%;
+    max-width: 80%;
+    border-radius: 10px;
+    scroll-snap-align: center;
+}
+
+.carousel::-webkit-scrollbar {
+    height: 10px;
+}
+
+.carousel::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 5px;
+}
+
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.6);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
 /* Banner */
 
 .banner {
